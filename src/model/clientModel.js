@@ -97,6 +97,40 @@ const retornarUsuario = (idOuNome) => {
   }
 }
 
-const criarCliente = () => {
-  
+const criarCliente = (novoCliente) => {
+  const novaId = clientes.length > 0 ? clientes[clientes.length - 1].id + 1 : 1;
+  const clienteId = { id: novaId, ...novoCliente };
+
+  clientes.push(clienteId);
+  return clienteId;
+}
+
+const modificarCliente = (modificacoes) => {
+  const { id } = modificacoes;
+  const index = clientes.findIndex(cliente => cliente.id === parseInt(id));
+
+  clientes[index] = { ...clientes[index], ...modificacoes };
+
+  return clientes[index];
+}
+
+const deletarCliente = (cliente) => {
+  const id = Number(cliente);
+
+  const index = clientes.findIndex(cliente => cliente.id === id);
+
+  if (index !== -1) {
+    clientes.splice(index, 1);
+    return true;
+  } else {
+    return undefined;
+  }
+}
+
+module.exports = {
+  retornarTudo,
+  retornarUsuario,
+  criarCliente,
+  modificarCliente,
+  deletarCliente,
 }

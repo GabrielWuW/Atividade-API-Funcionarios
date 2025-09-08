@@ -41,7 +41,7 @@ const modificarProduto = (req, res) => {
         return res.status(400).json({ mensagem: 'O campo Id deve estar presente no json' });
     }
 
-    return res.status(200).json({ produto: produtoModificado });
+    return res.status(200).json({ produtoModificado });
 };
 
 const deletarProduto = (req, res) => {
