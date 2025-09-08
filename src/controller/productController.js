@@ -2,8 +2,8 @@ const { json } = require('express');
 const controllerModel = require('../model/productModel');
 
 const obterTodosProdutos = (req, res) => {
-    const usuarios = controllerModel.retornaTudo();
-    res.status(200).json(usuarios);
+    const produtos = controllerModel.retornaTudo();
+    res.status(200).json(produtos);
 }
 
 const obterProdutoPelaId = (req, res) => {
@@ -47,7 +47,6 @@ const modificarProduto = (req, res) => {
 const deletarProduto = (req, res) => {
     const id = req.params.id;
     const produto = controllerModel.deletarProduto(id);
-    console.log(produto)
 
     if (produto == undefined) {
         res.status(404).json({ mensagem: 'Produto não encontrado no banco de dados 😭😭😭' });
