@@ -1,12 +1,12 @@
 let produtos = [
     {
         "id": 1,
-        "nome": "Camiseta de algodão",
+        "nome": "Camisa de algodão",
         "descricao": "Camiseta de algodão 100% com gola careca.",
         "preco": 39.90,
         "categoria": "Vestuário",
         "estoque": 120,
-        "ativo": true
+        "ativo": false
     },
     {
         "id": 2,

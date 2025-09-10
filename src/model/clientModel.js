@@ -1,7 +1,7 @@
 let clientes = [
   {
     "id": 101,
-    "nome": "Ana Paula Silva",
+    "nome": "Paula Silva",
     "email": "ana.silva@email.com",
     "telefone": "(11) 98876-4321",
     "endereco": {

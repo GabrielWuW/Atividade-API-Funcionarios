@@ -30,7 +30,7 @@ const criarUsuario = (req, res) => {
         return res.status(400).json({ mensagem: 'Todos os campos do endereço devem ser preenchidos' });
     }
 
-    const novoUsuario = controllerModel.criarProduto({
+    const novoUsuario = controllerModel.criarCliente({
         nome,
         email,
         telefone,
@@ -45,13 +45,14 @@ const criarUsuario = (req, res) => {
 const modificarUsuario = (req, res) => {
     const modificacoes = req.body;
 
+    if (!modificacoes || !modificacoes.id) {
+        return res.status(400).json({ mensagem: 'O campo Id deve estar presente no JSON' });
+    }
+
     const clienteModificado = controllerModel.modificarCliente(modificacoes);
 
     if (!clienteModificado) {
         return res.status(404).json({ mensagem: 'Cliente não encontrado' });
-    }
-    if (!modificacoes.id) {
-        return res.status(400).json({ mensagem: 'O campo Id deve estar presente no json' });
     }
 
     return res.status(200).json({ clienteModificado });
